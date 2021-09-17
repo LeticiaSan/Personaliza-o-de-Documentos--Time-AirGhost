@@ -4,7 +4,7 @@ import React from 'react';
 //import 'antd/dist/antd.css';
 import '../../styles/Main.css';
 import { Button } from 'antd';
-
+import {Link} from 'react-router-dom';
 
 function Main() {
   return (
@@ -16,7 +16,7 @@ function Main() {
       <div>
         <>
         <tr id = "menu">
-          <td><Button type="primary" >Primary Button</Button> </td>
+          <td><Link to="/codelist"><Button type="primary" >Primary Button</Button></Link> </td>
           <td><Button type="primary" >Primary Button</Button> </td>
           <td><Button type="primary" >Primary Button</Button> </td>
         </tr>
