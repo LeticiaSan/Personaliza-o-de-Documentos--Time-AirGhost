@@ -5,14 +5,13 @@ import React from 'react';
 import '../../styles/Main.css';
 import { Button } from 'antd';
 import {Link} from 'react-router-dom';
+import Header from '../../components/header';
 
 function Main() {
   return (
   document.getElementById('container'),
     <div className="App">
-      <header className="App-header"> 
-
-      </header>
+        <Header/>
       <div>
         <>
         <tr id = "menu">
