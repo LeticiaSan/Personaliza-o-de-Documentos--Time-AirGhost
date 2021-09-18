@@ -5,6 +5,7 @@ function Codelist() {
       const [generico, setGenerico] = useState('')
 
       async function handleSubmit(e){
+            
             e.preventDefault();
             const response = await api.post('/genetico', {
                   generico
@@ -18,7 +19,7 @@ function Codelist() {
                   <input
                   required
                   value={generico}
-                  onChange={e => setGenerico(e.target.value)}
+                  onChange={e => setGenerico(e.target.value)} 
                   />
                   <button type="submit">Cadastrar</button>
              </form>
