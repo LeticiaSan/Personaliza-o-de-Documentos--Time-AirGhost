@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import api from '../../services/api';
 import { Select } from 'antd';
 import { Modal, Button } from 'antd';
@@ -28,23 +28,35 @@ import Tables from '../../components/table';
       }
 
       const [visible, setVisible] = useState(false);
-      const [SectionNumber, setSectionNumber] = useState('');
-      const [SubSectionNumber, setSubSectionNumber] = useState('');
-      const [BlockNumber, setBlockNumber] = useState('');
-      const [BlockName, setBlockName] = useState('');
-      const [Code, setCode] = useState('');
-      const [TagNumber, setTagNumber] = useState('');
+      const [number_section, setSectionNumber] = useState('');
+      const [number_subsection, setSubSectionNumber] = useState('');
+      const [number_block, setBlockNumber] = useState('');
+      const [name_block, setBlockName] = useState('');
+      const [code, setCode] = useState('');
+      const [id_tag, setTagNumber] = useState('');
       const [TagName, setTagName] = useState('');
-      async function handleSubmit(e){
+      const [getItens, setGetItens] = useState([]);
+      //const [id_manual, setidManual] = useState('');
+      async function HandleSubmit(e){
+            useEffect(()=>{
+                  async function getItens(){
+                        const response = await api.get('/codelist',);
+                        setGetItens(response.data)
+                  }
+                  getItens()
+            },[]);
+            //setidManual(1);
+            const id_manual=1;
             e.preventDefault();
             const response = await api.post('/codelist', {
-                  SectionNumber,
-                  SubSectionNumber,
-                  BlockNumber, 
-                  BlockName, 
-                  Code, 
-                  TagNumber, 
-                  TagName
+                  id_tag,
+                  //TagName
+                  id_manual,
+                  number_section,
+                  number_subsection,
+                  number_block, 
+                  name_block, 
+                  code, 
             })
             setSectionNumber('');
             setSubSectionNumber('');
@@ -89,13 +101,13 @@ import Tables from '../../components/table';
                         >
                         
                               
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={HandleSubmit}>
                         
                         <p>
                               Section Number 
                               <input
                               required
-                              value={SectionNumber}
+                              value={number_section}
                               onChange={e => setSectionNumber(e.target.value)} 
                               />
                         </p>
@@ -103,7 +115,7 @@ import Tables from '../../components/table';
                               Subsection Number 
                               <input
                               required
-                              value={SubSectionNumber}
+                              value={number_subsection}
                               onChange={e => setSubSectionNumber(e.target.value)} 
                               />
                         </p>
@@ -111,7 +123,7 @@ import Tables from '../../components/table';
                               Block Number
                               <input
                               required
-                              value={BlockNumber}
+                              value={number_block}
                               onChange={e => setBlockNumber(e.target.value)} 
                               />
                         </p>
@@ -119,15 +131,15 @@ import Tables from '../../components/table';
                               Block Name
                               <input
                               required
-                              value={BlockName}
+                              value={name_block}
                               onChange={e => setBlockName(e.target.value)} 
                               />
                         </p>
                         <p>
-                              Code
+                              code
                               <input
                               required
-                              value={Code}
+                              value={code}
                               onChange={e => setCode(e.target.value)} 
                               />
                         </p>
@@ -135,7 +147,7 @@ import Tables from '../../components/table';
                               Tag Number 
                               <input
                               required
-                              value={TagNumber}
+                              value={id_tag}
                               onChange={e => setTagNumber(e.target.value)} 
                               />
                         </p>
