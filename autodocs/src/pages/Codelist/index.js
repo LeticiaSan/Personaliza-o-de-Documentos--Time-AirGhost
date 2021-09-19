@@ -68,6 +68,7 @@ import Tables from '../../components/table';
       }
     return (
             <>
+            <Header/>
             <Select
                   showSearch
                   style={{ width: 200 }}
