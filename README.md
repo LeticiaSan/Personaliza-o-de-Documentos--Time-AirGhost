@@ -4,6 +4,7 @@
 <hr>
 
 # 🔹 Burndown
+<center><img src= "https://media.discordapp.net/attachments/829529495886888990/889327244642762792/unknown.png?width=1020&height=237"></center>
 
 # 🔹 MER
 <hr>
