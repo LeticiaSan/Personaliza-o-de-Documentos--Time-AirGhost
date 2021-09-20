@@ -17,7 +17,7 @@
 <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/><br>
 - _Prototype Plataform_<br>
 <img alt="Figma" src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"/><br>
-
+[![Github Badge](https://github-readme-stats.vercel.app/api/top-langs/?LeticiaSan={LeticiaSan})
 
 # Sprints📋
 
