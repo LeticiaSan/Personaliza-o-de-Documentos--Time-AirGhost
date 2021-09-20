@@ -2,7 +2,7 @@
 
 
 <h5 align="center">
-      <center><img src="https://media.discordapp.net/attachments/811312529740922880/889320635187224596/11.png?width=473&height=473">
+      <center><img src="https://cdn.discordapp.com/attachments/829529495886888990/889333056899518534/Autodocs_logo_2.png">
       </center>    
 </h5>
 
