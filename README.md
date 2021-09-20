@@ -14,15 +14,6 @@
 | ------ | ------ |
 |    19/09/2021    |[Sprint 1](https://github.com/LeticiaSan/Personaliza-o-de-Documentos--Time-AirGhost/tree/Sprint_1) :sparkles: **New!** |
 
-# Tecnologias💻
-[![forthebadge](https://forthebadge.com/generator/?plabel=Made+With&slabel=Node.js) <br>
-[![forthebadge](https://forthebadge.com/images/badges/uses-js.svg)](https://forthebadge.com)
-[![forthebadge](https://forthebadge.com/images/badges/uses-html.svg)](https://forthebadge.com) 
-[![forthebadge](https://forthebadge.com/images/badges/uses-css.svg)](https://forthebadge.com)<br>
-<img alt="MySQL" src="https://img.shields.io/badge/mysql-%2300f.svg?&style=for-the-badge&logo=mysql&logoColor=white"/>
-<img alt="React" src="https://img.shields.io/badge/react%20-%2320232a.svg?&style=for-the-badge&logo=react&logoColor=%2361DAFB"/>
-
-
 # Equipe😄
 [![Github Badge](https://img.shields.io/badge/MASTER-Letícia_Santos-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LeticiaSan)
 
