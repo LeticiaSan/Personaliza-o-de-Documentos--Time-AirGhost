@@ -6,6 +6,14 @@
       </center>    
 </h5>
 
+# Sprints📋
+
+**Aqui você pode acompanhar os estágios de desenvolvimento com notas de atualização de cada Sprint:**
+
+| Data | Links |
+| ------ | ------ |
+|    19/09/2021    |[Sprint 1](https://github.com/LeticiaSan/Personaliza-o-de-Documentos--Time-AirGhost/tree/Sprint_1) :sparkles: **New!** |
+
 # Tecnologias💻
 - _Languages_<br>
 <img alt="JavaScript" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/><br>
@@ -17,15 +25,7 @@
 <img alt="PostgreSQL" src="https://img.shields.io/badge/PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white"/><br>
 - _Prototype Plataform_<br>
 <img alt="Figma" src="https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white"/><br>
-[![Github Badge](https://github-readme-stats.vercel.app/api/top-langs/?username={username}](https://github.com/LeticiaSan)
 
-# Sprints📋
-
-**Aqui você pode acompanhar os estágios de desenvolvimento com notas de atualização de cada Sprint:**
-
-| Data | Links |
-| ------ | ------ |
-|    19/09/2021    |[Sprint 1](https://github.com/LeticiaSan/Personaliza-o-de-Documentos--Time-AirGhost/tree/Sprint_1) :sparkles: **New!** |
 
 # Equipe😄
 [![Github Badge](https://img.shields.io/badge/MASTER-Letícia_Santos-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/LeticiaSan)
