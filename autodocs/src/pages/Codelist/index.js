@@ -89,7 +89,7 @@ import Mais from '../../Imagens/mais.png';
                   <Option value="CDE-3456">CDE-3456</Option>
             </Select>
             </p>
-            <Button type="" id="createCodelist" onClick={() => setVisible(true)}>
+            <Button id="createCodelist" onClick={() => setVisible(true)}>
                   Novo Codelist &nbsp;<img class ="mais" alt ="" src={Mais}/>
             </Button>
                   
