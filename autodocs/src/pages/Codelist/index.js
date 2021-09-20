@@ -1,9 +1,10 @@
 import React, {useState, useEffect} from 'react';
 import api from '../../services/api';
-import { Select } from 'antd';
-import { Modal, Button } from 'antd';
+import { Select, Modal, Button } from 'antd';
 import Header from '../../components/header';
 import Tables from '../../components/table';
+import '../../styles/Codelist.css';
+import Mais from '../../Imagens/mais.png';
 
 
 
@@ -69,6 +70,7 @@ import Tables from '../../components/table';
     return (
             <>
             <Header/>
+            <p class="select">
             <Select
                   showSearch
                   style={{ width: 200 }}
@@ -86,85 +88,117 @@ import Tables from '../../components/table';
                   <Option value="BCD-2345">BCD-2345</Option>
                   <Option value="CDE-3456">CDE-3456</Option>
             </Select>
-
-            <Button type="primary" onClick={() => setVisible(true)}>
-                  Novo Codelist (+)
+            </p>
+            <Button type="" id="createCodelist" onClick={() => setVisible(true)}>
+                  Novo Codelist &nbsp;<img class ="mais" alt ="" src={Mais}/>
             </Button>
                   
                    <Modal
-                        title=""
+                        title="Cadastro codelist"
                         centered
                         visible={visible}
                         width={1300}
                         footer={[
-                              <button onClick={() => setVisible(false)}>Cancelar</button>,
+                              
+                              
                               ]}
                         >
                         
                               
                         <form onSubmit={HandleSubmit}>
                         
-                        <p>
-                              Section Number 
+                        <ul class="form">
+                              <ui id="label">
+                             <b> Section Number </b>
+                             </ui>
+                             <ui id="input">
                               <input
                               required
                               value={number_section}
                               onChange={e => setSectionNumber(e.target.value)} 
                               />
-                        </p>
-                        <p>
-                              Subsection Number 
+                              </ui>
+                        </ul>
+                        <ul class="form">  
+                              <ui id="label">
+                              <b>Subsection Number </b>
+                              </ui>
+                              <ui id="input">
                               <input
                               required
                               value={number_subsection}
                               onChange={e => setSubSectionNumber(e.target.value)} 
                               />
-                        </p>
-                        <p>
-                              Block Number
+                              </ui>
+                        </ul>
+                        <ul class="form">  
+                        <ui id="label">
+                         <b>Block Number </b>
+                         </ui>
+                         <ui id="input">
                               <input
                               required
                               value={number_block}
                               onChange={e => setBlockNumber(e.target.value)} 
                               />
-                        </p>
-                        <p>
-                              Block Name
+                        </ui>
+                        </ul>  
+                        <ul class="form">  
+                        <ui id="label">
+                              <b> Block Name </b>
+                        </ui>
+                              <ui id="input">
                               <input
                               required
                               value={name_block}
                               onChange={e => setBlockName(e.target.value)} 
                               />
-                        </p>
-                        <p>
-                              code
+                        </ui>
+                        </ul>  
+                        <ul class="form">  
+                        <ui id="label">
+                              <b>code </b>
+                         </ui>
+                              <ui id="input">
                               <input
                               required
                               value={code}
                               onChange={e => setCode(e.target.value)} 
                               />
-                        </p>
-                        <p>
-                              Tag Number 
+                        </ui>
+                        </ul>  
+                        <ul class="form">  
+                        <ui id="label">
+                              <b>Tag Number </b>
+                        </ui>
+                              <ui id="input">
                               <input
                               required
                               value={id_tag}
                               onChange={e => setTagNumber(e.target.value)} 
                               />
-                        </p>
-                        <p>
-                              Tag Name 
+                        </ui>
+                        </ul>  
+                        <ul class="form">  
+                        <ui id="label">
+                              <b>Tag Name </b>
+                        </ui>
+                              <ui id="input">
                               <input
                               required
                               value={TagName}
                               onChange={e => setTagName(e.target.value)} 
                               />
-                        <button type="submit">Cadastrar</button>
-                        </p>
+                        </ui>
+                        </ul>  
+                        
+                        <button type="submit" id="cadastrar">Cadastrar</button>
+                        <button onClick={() => setVisible(false)} id="cancelar">Cancelar</button>
                         </form>
                   </Modal>
-                  
-            <Tables/>
+            <p class="table"> 
+                   <Tables/>
+            </p>
           </>
     );
   }

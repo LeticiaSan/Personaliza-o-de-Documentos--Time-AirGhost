@@ -10,23 +10,34 @@ import { Table } from 'antd';
             key: 'Nº Section',
         },
         {
-            title: 'Age',
-            dataIndex: 'age',
-            key: 'age',
+            title: 'Nº Subection',
+            dataIndex: 'Nº Subection',
+            key: 'Nº Subection',
         },
         {
-            title: 'Address',
-            dataIndex: 'address',
-            key: 'address',
+            title: 'Nº Block',
+            dataIndex: 'Nº Block',
+            key: 'Nº Block',
         },
         {
-            title: 'Tags',
-            key: 'tags',
-            dataIndex: 'tags',
+            title: 'Block Name',
+            key: 'Block Name',
+            dataIndex: 'Block Name',
         },
         {
-            title: 'Action',
-            key: 'action',
+            title: 'Code',
+            key: 'Code',
+            dataIndex: 'Code',
+        },
+        {
+            title: 'Nº Tag',
+            key: 'Nº Tag',
+            dataIndex: 'n tag',
+        },
+        {
+            title: 'Tag Name',
+            key: 'Tag',
+            dataIndex: 'Tag',
         },
         ];
 
