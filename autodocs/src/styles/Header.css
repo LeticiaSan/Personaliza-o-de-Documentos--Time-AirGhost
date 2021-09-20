@@ -1,0 +1,35 @@
+.header{
+    height: 60px;
+    background: #242478;
+    position: relative;
+}
+.logotipo{
+    margin: 0 90px 0 30px;
+    height: 70px;
+}
+.ImagemUser{
+    position: absolute;
+    top: 1px;
+    right: 20px;
+    height: 45px;
+}
+.header ul{
+    margin: 0;
+    padding: 0;
+}
+.header li{
+    list-style: none;
+    display: inline-block;
+}
+.header a{
+    position: absolute;
+    color: #e0e0e0;
+    text-decoration: none;
+    font-size: 16px;
+    top: 7px;
+    right: 100px;
+    height: 45px;
+}
+.header a:hover{
+    color: #ffffff;   
+}
