@@ -39,13 +39,13 @@ import Mais from '../../Imagens/mais.png';
       const [getItens, setGetItens] = useState([]);
       //const [id_manual, setidManual] = useState('');
       async function HandleSubmit(e){
-            useEffect(()=>{
+            /*useEffect(()=>{
                   async function getItens(){
                         const response = await api.get('/codelist',);
                         setGetItens(response.data)
                   }
                   getItens()
-            },[]);
+            },[]);*/
             //setidManual(1);
             const id_manual=1;
             e.preventDefault();
