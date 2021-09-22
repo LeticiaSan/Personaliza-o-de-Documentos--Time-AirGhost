@@ -16,7 +16,7 @@ function Main() {
   document.getElementById('container'),
     <div class="App">
       <Header/>
-          <h1 id = "titulo"> Por onde iremos começar ?
+          <h1 id = "titulo"> Por onde iremos começar ? <img class ="light" alt ="" src={Light}/>
             <h2 id = "sub-titulo"> Selecione abaixo o que deseja fazer
               <header className="App-header"> 
                 <h1>
