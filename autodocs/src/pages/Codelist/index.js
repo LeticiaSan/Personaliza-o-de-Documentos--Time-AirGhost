@@ -25,7 +25,8 @@ function Codelist() {
     console.log("search:", val);
   }
 
-  const [visible, setVisible] = useState(false);
+  const [visibleLine, setVisibleLine] = useState(false);
+  const [visibleTag, setVisibleTag] = useState(false);
   const [number_section, setSectionNumber] = useState("");
   const [number_subsection, setSubSectionNumber] = useState("");
   const [number_block, setBlockNumber] = useState("");
@@ -85,7 +86,11 @@ function Codelist() {
           <Option value="CDE-3456">CDE-3456</Option>
         </Select>
       </p>
-      <Button id="createCodelist" onClick={() => setVisible(true)}>
+      <Button id="createTag" onClick={() => setVisibleTag(true)}>
+        Nova Tag &nbsp;
+        <img class="mais" alt="" src={Mais} />
+      </Button>
+      <Button id="createCodelist" onClick={() => setVisibleLine(true)}>
         Novo Codelist &nbsp;
         <img class="mais" alt="" src={Mais} />
       </Button>
@@ -93,10 +98,10 @@ function Codelist() {
       <Modal
         title="Cadastro codelist"
         centered
-        visible={visible}
+        visible={visibleLine}
         width={1300}
         footer={[]}
-      >
+      >      
         <form onSubmit={HandleSubmit}>
           <ul class="form">
             <ui id="label">
@@ -186,11 +191,53 @@ function Codelist() {
           <button type="submit" id="cadastrar">
             Cadastrar
           </button>
-          <button onClick={() => setVisible(false)} id="cancelar">
+          <button onClick={() => setVisibleLine(false)} id="cancelar">
             Cancelar
           </button>
         </form>
       </Modal>
+
+      <Modal
+        title="Cadastro tag"
+        centered
+        visible={visibleTag}
+        width={1300}
+        footer={[]}
+      >
+        <form onSubmit={HandleSubmit}>
+          <ul class="form">
+            <ui id="label">
+              <b>Tag Number </b>
+            </ui>
+            <ui id="input">
+              <input
+                required
+                value={id_tag}
+                onChange={(e) => setTagNumber(e.target.value)}
+              />
+            </ui>
+          </ul>
+          <ul class="form">
+            <ui id="label">
+              <b>Tag Name </b>
+            </ui>
+            <ui id="input">
+              <input
+                required
+                value={TagName}
+                onChange={(e) => setTagName(e.target.value)}
+              />
+            </ui>
+          </ul>
+          <button onClick={() => setVisibleTag(false)} id="cancelar">
+            Cancelar
+          </button>
+          <button type="submit" id="cadastrar">
+            Cadastrar
+          </button>
+          </form>
+      </Modal>
+
       <p class="table">
         <Tables />
       </p>
