@@ -5,32 +5,33 @@ import api from "../services/api";
     function Tables(){
         const [getItens, setGetItens] = useState([]);
         useEffect(()=>{
-            async function getItens(){
-                  const response = await api.get('/codelist',);
+            async function getLines(){
+                  const response = await api.get('/codelist?id=1');
+                  console.log(response.data);
                   setGetItens(response.data)
             }
-            getItens()
+            getLines()
       },[]);
         const columns = [
         {
             title: 'Nº Section',
-            dataIndex: 'Nº Section',
-            key: 'Nº Section',
+            dataIndex: 'NºSection',
+            key: 'NºSection',
         },
         {
             title: 'Nº Subection',
-            dataIndex: 'Nº Subection',
-            key: 'Nº Subection',
+            dataIndex: 'NºSubection',
+            key: 'NºSubection',
         },
         {
             title: 'Nº Block',
-            dataIndex: 'Nº Block',
-            key: 'Nº Block',
+            dataIndex: 'NºBlock',
+            key: 'NºBlock',
         },
         {
             title: 'Block Name',
-            key: 'Block Name',
-            dataIndex: 'Block Name',
+            key: 'BlockName',
+            dataIndex: 'BlockName',
         },
         {
             title: 'Code',
@@ -39,8 +40,8 @@ import api from "../services/api";
         },
         {
             title: 'Nº Tag',
-            key: 'Nº Tag',
-            dataIndex: 'n tag',
+            key: 'NºTag',
+            dataIndex: 'NºTag',
         },
         {
             title: 'Tag Name',
@@ -52,25 +53,34 @@ import api from "../services/api";
         const data = [
         {
             key: '1',
-            name: 'John Brown',
-            age: 32,
-            address: 'New York No. 1 Lake Park',
-            tags: ['nice', 'developer'],
+            Code: 'John Brown',
+            Tag: getItens.id_codelist,
+            NºTag: getItens.id_tag,
+            BlockName: 'Letter',
+            NºBlock: 1,
+            NºSubection: 'oi',
+            NºSection: 'boi'
         },
         {
             key: '2',
-            name: 'Jim Green',
-            age: 42,
-            address: 'London No. 1 Lake Park',
-            tags: ['loser'],
+            Code: 'John Brown',
+            Tag: 32,
+            NºTag: 1,
+            BlockName: 'Letter',
+            NºBlock: 1,
+            NºSubection: 'oi',
+            NºSection: 'boi'
         },
         {
             key: '3',
-            name: 'Joe Black',
-            age: 32,
-            address: 'Sidney No. 1 Lake Park',
-            tags: ['cool', 'teacher'],
-        },
+            Code: 'John Brown',
+            Tag: 32,
+            NºTag: 1,
+            BlockName: 'Letter',
+            NºBlock: 1,
+            NºSubection: 'oi',
+            NºSection: 'boi'
+        }
         ];
 
         return(<Table columns={columns} dataSource={data} /> );
