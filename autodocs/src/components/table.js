@@ -1,8 +1,16 @@
-import React from 'react';
 import 'antd/dist/antd.css';
 import { Table } from 'antd';
-
+import React, { useState, useEffect } from "react";
+import api from "../services/api";
     function Tables(){
+        const [getItens, setGetItens] = useState([]);
+        useEffect(()=>{
+            async function getItens(){
+                  const response = await api.get('/codelist',);
+                  setGetItens(response.data)
+            }
+            getItens()
+      },[]);
         const columns = [
         {
             title: 'Nº Section',
@@ -40,7 +48,7 @@ import { Table } from 'antd';
             dataIndex: 'Tag',
         },
         ];
-
+        
         const data = [
         {
             key: '1',
