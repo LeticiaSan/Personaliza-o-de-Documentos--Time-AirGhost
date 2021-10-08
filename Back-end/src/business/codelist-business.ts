@@ -25,8 +25,8 @@ class Codelist {
     return codelistDB.create(this);
   }
 
-  static async buscaPorId(codelistId:string) {
-    const foundCodelist = await codelistDB.findOne({where:{id_codelist:codelistId}});
+  static async buscaPorId(idManual:string) {
+    const foundCodelist = await codelistDB.findOne({where:{id_manual:idManual}});
     
     return foundCodelist.dataValues
   }

@@ -55,6 +55,7 @@ function Codelist() {
       name_block,
       code,
     });
+    console.log(response.data);
     setSectionNumber("");
     setSubSectionNumber("");
     setBlockNumber("");

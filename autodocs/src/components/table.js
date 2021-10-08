@@ -8,9 +8,9 @@ import api from "../services/api";
             async function getLines(){
                   const response = await api.get('/codelist?id=1');
                   console.log(response.data);
-                  setGetItens(response.data)
+                  setGetItens(response.data);
             }
-            getLines()
+            getLines();
       },[]);
         const columns = [
         {
@@ -53,13 +53,13 @@ import api from "../services/api";
         const data = [
         {
             key: '1',
-            Code: 'John Brown',
+            Code: getItens.code,
             Tag: getItens.id_codelist,
             NºTag: getItens.id_tag,
-            BlockName: 'Letter',
-            NºBlock: 1,
-            NºSubection: 'oi',
-            NºSection: 'boi'
+            BlockName: getItens.name_block,
+            NºBlock: getItens.number_block,
+            NºSubection: getItens.number_subsection,
+            NºSection: getItens.number_section
         },
         {
             key: '2',
