@@ -53,16 +53,7 @@ function Codelist() {
       const [id_tag, setTagNumber] = useState('');
       const [TagName, setTagName] = useState('');
       const manualids = 0;
-      //const [id_manual, setidManual] = useState('');
       async function HandleSubmit(e) {
-            /*useEffect(()=>{
-                  async function getItens(){
-                        const response = await api.get('/codelist',);
-                        setGetItens(response.data)
-                  }
-                  getItens()
-            },[]);*/
-            //setidManual(1);
             const id_manual = 1;
             e.preventDefault();
             const response = await api.post('/codelist', {
@@ -92,18 +83,16 @@ function Codelist() {
             setManualName('');
       }
 
-/*      const [getItens, setGetItens] = useState([]);
-
-      for(var i = 1; i < 7; i++){    
+      const [getItens, setGetItens] = useState([]);
+  
       useEffect(()=>{
           async function getLines(){
-                const response = await api.get('/manual?id=',{i});
+                const response = await api.get('/manual');
                 console.log(response.data);
                 setGetItens(response.data);
           }
           getLines();
       },[]);
-      }*/
       return (
             <>
                   <Header />
@@ -121,14 +110,12 @@ function Codelist() {
                                     option.children.toLowerCase().indexOf(input.toLowerCase()) >= 0
                               }
                         >
-
+                        
                               <Option value="Novo Manual">Novo Manual</Option>
-                              {/*
-                              <Option value="1">{getItens.name_manual}</Option>
+                              {
+                              getItens.map(data=>(<Option value={data.id_manual}>{data.name_manual}</Option>))
                               }
                               
-                              {/*for(var i = 1; i < 7; i++)*/}
-                               <Option value="1">1</Option>
                         </Select>
                   </p>
 
