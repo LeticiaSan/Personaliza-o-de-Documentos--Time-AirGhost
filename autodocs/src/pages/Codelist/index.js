@@ -16,7 +16,7 @@ function Codelist() {
             console.log(`selected ${value}`);
             if (value == "Novo Manual") {
                   console.log("Novo Manual Escolhido");
-                  //setVisible(true);
+                  setManualVisible(true);
             } else {
                   console.log("Outro Manual Escolhido")
             }
@@ -35,6 +35,8 @@ function Codelist() {
       }
 
 
+      const [visibleManual, setManualVisible] = useState(false);
+      const [Nametag, setManualName] = useState('');
       const [visible, setVisible] = useState(false);
       const [number_section, setSectionNumber] = useState('');
       const [number_subsection, setSubSectionNumber] = useState('');
@@ -66,6 +68,7 @@ function Codelist() {
                   name_block,
                   code,
             })
+            setManualName('');
             setSectionNumber('');
             setSubSectionNumber('');
             setBlockNumber('');
@@ -93,12 +96,48 @@ function Codelist() {
                         >
 
                               <Option value="Novo Manual">Novo Manual</Option>
-                              
                               <Option value="ABC-1234">ABC-1234</Option>
                               <Option value="BCD-2345">BCD-2345</Option>
                               <Option value="CDE-3456">CDE-3456</Option>
                         </Select>
                   </p>
+
+                  <Modal
+                        
+                        id = 'tituloModal' title= "Novo Manual"
+                        centered
+                        visible= {visibleManual}
+                        width= {1300}
+                        footer = {[
+
+                        
+                        ]}
+                        
+                  >
+                        <form onSubmit={HandleSubmit}>
+
+                              <ul class="form">
+                                    <ui id="letra">
+                                          <b> Nome do Manual: </b>
+                                    </ui>
+                                    <ui id="inputManual">
+                                          <input
+                                                required
+                                                value={number_section}
+                                                onChange={e => setManualName(e.target.value)}
+                                          />
+                                    </ui>
+                              </ul>
+                        </form>
+
+                        
+                        <button type="submit" id="cadastrar">Salvar</button>
+                        
+                        <button onClick={() => setManualVisible(false)} id="cancelar">Cancelar</button>
+
+                        
+                        
+                  </Modal>
 
 
 
@@ -107,7 +146,7 @@ function Codelist() {
                   </Button>
 
                   <Modal
-                        title="Cadastro codelist"
+                        title="Cadastro codelist" 
                         centered
                         visible={visible}
                         width={1300}

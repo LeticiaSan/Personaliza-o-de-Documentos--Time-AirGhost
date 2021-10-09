@@ -72,3 +72,13 @@
     width: 80px;
     height: 80px;
 }
+#letra{
+    width: 300px;
+    font-size: 30px;
+}
+#inputManual{
+    position: relative;
+    bottom: -10px;
+
+
+}
