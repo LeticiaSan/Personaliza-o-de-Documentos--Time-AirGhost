@@ -2,8 +2,6 @@ import codelistDB from '../models/codelist-modelo';
 
 class Codelist {
   id_codelist?: string;
-  id_tag?: string
-  id_manual: string;
   number_section?: string;
   number_subsection: string;
   number_block: string;
@@ -12,10 +10,8 @@ class Codelist {
   fk_manual: number;
   fk_tag: number;
 
-  constructor(id_codelist: string, id_tag: string, id_manual: string, number_section: string, number_subsection: string, number_block: string, name_block: string, code: string, fk_manual: number, fk_tag: number) {
+  constructor(id_codelist: string, number_section: string, number_subsection: string, number_block: string, name_block: string, code: string, fk_manual: number, fk_tag: number) {
     this.id_codelist = id_codelist,
-      this.id_tag = id_tag,
-      this.id_manual = id_manual,
       this.number_section = number_section,
       this.number_subsection = number_subsection,
       this.number_block = number_block,

@@ -13,10 +13,10 @@ class Tags {
     return tagsDB.create(this);
   }
 
-  static async buscaPorId(tagsId: string) {
-    const foundTag = await tagsDB.findByPk(tagsId);
+  static async buscaPorId() {
+    const foundTag = await tagsDB.findAll();
 
-    return foundTag.dataValues
+    return foundTag
   }
 }
 

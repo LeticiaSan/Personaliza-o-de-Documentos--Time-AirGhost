@@ -6,7 +6,7 @@ import api from "../services/api";
         const [getItens, setGetItens] = useState([]);
         useEffect(()=>{
             async function getLines(){
-                  const response = await api.get('/codelist?id=1');
+                  const response = await api.get('/codelist?id=');
                   console.log(response.data);
                   setGetItens(response.data);
             }
@@ -48,6 +48,7 @@ import api from "../services/api";
             key: 'Tag',
             dataIndex: 'Tag',
         },
+        
         ];
         
         const data = [

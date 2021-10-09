@@ -8,9 +8,10 @@ import Mais from "../../Imagens/mais.png";
 
 function Codelist() {
   const { Option } = Select;
-
+  let fk_manual;
   function onChange(value) {
     console.log(`selected ${value}`);
+    fk_manual = value;
   }
 
   function onBlur() {
@@ -31,7 +32,7 @@ function Codelist() {
   const [number_block, setBlockNumber] = useState("");
   const [name_block, setBlockName] = useState("");
   const [code, setCode] = useState("");
-  const [id_tag, setTagNumber] = useState("");
+  const [fk_tag, setTagNumber] = useState("");
   const [TagName, setTagName] = useState("");
   //const [id_manual, setidManual] = useState('');
   async function HandleSubmit(e) {
@@ -43,12 +44,12 @@ function Codelist() {
                   getItens()
             },[]);*/
     //setidManual(1);
-    const id_manual = 1;
+
     e.preventDefault();
     const response = await api.post("/codelist", {
-      id_tag,
+      fk_tag,
       //TagName
-      id_manual,
+      fk_manual,
       number_section,
       number_subsection,
       number_block,
@@ -166,7 +167,7 @@ function Codelist() {
             <ui id="input">
               <input
                 required
-                value={id_tag}
+                value={fk_tag}
                 onChange={(e) => setTagNumber(e.target.value)}
               />
             </ui>

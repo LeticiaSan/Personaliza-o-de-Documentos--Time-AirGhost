@@ -2,12 +2,10 @@ import Codelist from '../business/codelist-business';
 
 export default {
   adiciona: async (req, res) => {
-    const { id_codelist, id_tag, id_manual, number_section, number_subsection, number_block, name_block, code, fk_manual, fk_tag } = req.body;
+    const { id_codelist, number_section, number_subsection, number_block, name_block, code, fk_manual, fk_tag } = req.body;
     try {
       const codelist = new Codelist(
         id_codelist,
-        id_tag,
-        id_manual,
         number_section,
         number_subsection,
         number_block,
@@ -48,12 +46,10 @@ export default {
   },
 
   atualizar: async (req, res) => {
-    const { id_codelist, id_tag, id_manual, number_section, number_subsection, number_block, name_block, code, fk_manual, fk_tag } = req.body;
+    const { id_codelist, number_section, number_subsection, number_block, name_block, code, fk_manual, fk_tag } = req.body;
     try {
       const codelist = new Codelist(
         id_codelist,
-        id_tag,
-        id_manual,
         number_section,
         number_subsection,
         number_block,
