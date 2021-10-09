@@ -13,10 +13,11 @@ class Manual {
     return manualDB.create(this);
   }
 
-  static async buscaPorId(manualId: string) {
-    const foundManual = await manualDB.findByPk(manualId);
+  static async buscaPorId() {
+    const foundManual = await manualDB.findAll();
+    console.log(foundManual);
 
-    return foundManual.dataValues
+    return foundManual
   }
 }
 

@@ -18,10 +18,8 @@ export default {
   },
 
   buscaPorId: async (req, res) => {
-    const { id } = req.query;
-
     try {
-      const response = await Tag.buscaPorId(id);
+      const response = await Tag.buscaPorId();
       res.status(200).json(response);
     } catch (error: any) {
       res.status(500).json({ erro: error.message });

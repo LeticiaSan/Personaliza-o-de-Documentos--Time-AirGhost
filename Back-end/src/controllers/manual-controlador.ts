@@ -18,10 +18,8 @@ export default {
   },
 
   buscaPorId: async (req, res) => {
-    const { id } = req.query;
-
     try {
-      const response = await Manual.buscaPorId(id);
+      const response = await Manual.buscaPorId();
       res.status(201).json(response);
     } catch (error: any) {
       res.status(500).json({ erro: error.message });

@@ -12,14 +12,17 @@ function Codelist() {
 
       const { Option } = Select;
 
+      function onCancel(){
+            onChange('Digite o Manual');
+            setManualVisible(false);
+            refreshPage();
+
+      }
       function onChange(value) {
             console.log(`selected ${value}`);
             if (value == "Novo Manual") {
-                  console.log("Novo Manual Escolhido");
                   setManualVisible(true);
-            } else {
-                  console.log("Outro Manual Escolhido")
-            }
+            } 
       }
 
       function onBlur() {
@@ -33,10 +36,14 @@ function Codelist() {
       function onSearch(val) {
             console.log('search:', val);
       }
+      function refreshPage(){ 
+            window.location.reload(); 
+      }
+
 
 
       const [visibleManual, setManualVisible] = useState(false);
-      const [Nametag, setManualName] = useState('');
+      const [name_manual, setManualName] = useState('');
       const [visible, setVisible] = useState(false);
       const [number_section, setSectionNumber] = useState('');
       const [number_subsection, setSubSectionNumber] = useState('');
@@ -45,7 +52,7 @@ function Codelist() {
       const [code, setCode] = useState('');
       const [id_tag, setTagNumber] = useState('');
       const [TagName, setTagName] = useState('');
-      const [getItens, setGetItens] = useState([]);
+      const manualids = 0;
       //const [id_manual, setidManual] = useState('');
       async function HandleSubmit(e) {
             /*useEffect(()=>{
@@ -67,8 +74,8 @@ function Codelist() {
                   number_block,
                   name_block,
                   code,
+                  
             })
-            setManualName('');
             setSectionNumber('');
             setSubSectionNumber('');
             setBlockNumber('');
@@ -77,6 +84,26 @@ function Codelist() {
             setTagNumber('');
             setTagName('');
       }
+      async function submitManual(e){
+            e.preventDefault();
+            const response = await api.post('/manual', {
+                  name_manual
+            })
+            setManualName('');
+      }
+
+/*      const [getItens, setGetItens] = useState([]);
+
+      for(var i = 1; i < 7; i++){    
+      useEffect(()=>{
+          async function getLines(){
+                const response = await api.get('/manual?id=',{i});
+                console.log(response.data);
+                setGetItens(response.data);
+          }
+          getLines();
+      },[]);
+      }*/
       return (
             <>
                   <Header />
@@ -96,15 +123,18 @@ function Codelist() {
                         >
 
                               <Option value="Novo Manual">Novo Manual</Option>
-                              <Option value="ABC-1234">ABC-1234</Option>
-                              <Option value="BCD-2345">BCD-2345</Option>
-                              <Option value="CDE-3456">CDE-3456</Option>
+                              {/*
+                              <Option value="1">{getItens.name_manual}</Option>
+                              }
+                              
+                              {/*for(var i = 1; i < 7; i++)*/}
+                               <Option value="1">1</Option>
                         </Select>
                   </p>
 
                   <Modal
                         
-                        id = 'tituloModal' title= "Novo Manual"
+                        title= "Novo Manual"
                         centered
                         visible= {visibleManual}
                         width= {1300}
@@ -114,7 +144,7 @@ function Codelist() {
                         ]}
                         
                   >
-                        <form onSubmit={HandleSubmit}>
+                        <form onSubmit={submitManual}>
 
                               <ul class="form">
                                     <ui id="letra">
@@ -123,19 +153,17 @@ function Codelist() {
                                     <ui id="inputManual">
                                           <input
                                                 required
-                                                value={number_section}
+                                                value={name_manual}
                                                 onChange={e => setManualName(e.target.value)}
                                           />
                                     </ui>
                               </ul>
+
+                        
+                              
+                              <button onClick={() => onCancel()} id="cancelar">Cancelar</button>
+                              <button type="submit" id="salvar">Salvar</button>    
                         </form>
-
-                        
-                        <button type="submit" id="cadastrar">Salvar</button>
-                        
-                        <button onClick={() => setManualVisible(false)} id="cancelar">Cancelar</button>
-
-                        
                         
                   </Modal>
 

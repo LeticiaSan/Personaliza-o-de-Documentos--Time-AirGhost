@@ -8,14 +8,6 @@ const Codelist = database.define('Codelist', {
         allowNull: false,
         primaryKey: true
     },
-    id_tag: {
-        type: STRING,
-        allowNull: false
-    },
-    id_manual: {
-        type: INTEGER,
-        allowNull: false
-    },
     number_section: {
         type: STRING,
         allowNull: false
