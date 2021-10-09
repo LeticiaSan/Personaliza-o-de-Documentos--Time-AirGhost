@@ -1,0 +1,9 @@
+.style {
+    display: flex;
+    align-items: center;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.botao {
+    display: flex;
+    margin-right: 5px;
+}
