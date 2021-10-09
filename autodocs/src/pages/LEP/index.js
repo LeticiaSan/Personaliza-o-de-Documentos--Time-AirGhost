@@ -1,32 +1,39 @@
 import React from 'react';
 import Header from '../../components/header';
+import '../../styles/LEP.css';
+import Adicionar from '../../Imagens/mais.png';
 function LEP() {
     return (
         <>
         <Header/>
         <body>
-            <div>
+            <div class='body'>
                 <div class='style'>
-                <h1>Nome do manual</h1> 
-                <input type='text' placeholder='nome do manual'></input>
-            </div>
+                <h2 id='manual'>Nome do Manual 
+                <input class='input' type='text' placeholder='Nome do Manual'></input></h2>
+                </div> 
 
             <div class='style'>
-                <h1>TAG</h1>
-                <input type='text' placeholder='TAG'></input>
+                <h2>Tag</h2>
+                <input class='input' id='tag' type='text' placeholder='Tag'></input>
             </div>
-
+            <hr size="50"/>
             <div class='style'>
-                <h1>Data do Documento Original</h1>
-                <input id="date" type="date"></input>
+                <h2>Data do Documento Original</h2>
+                <input class='input' id="date" type="date"></input>
             </div>
 
-            <div class='botao'>
-                <h1>Adicionar revisão</h1>
-                <input id="date" type="date"></input>
-                <button>adicionar</button>
+            <div class='adicionar'>
+                <h2>Adicionar Revisão</h2>
+                <input class='input' id="date" type="date"></input>
+                <button class='botao' id='add'><p id='mais'>+</p></button>
             </div>
-        </div>
+
+            <div class='botoes'>
+                <button class='botao'>Cancelar</button>
+                <button class='botao'>Criar</button>
+            </div>
+            </div> 
         </body>
         
         </>
