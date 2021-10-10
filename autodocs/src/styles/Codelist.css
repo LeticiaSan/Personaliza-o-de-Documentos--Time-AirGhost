@@ -83,3 +83,22 @@
     width: 80px;
     height: 80px;
 }
+#letra{
+    width: 300px;
+    font-size: 30px;
+}
+#inputManual{
+    position: relative;
+    bottom: -10px;
+
+
+}#salvar{
+    position: relative;
+    width: 150px;
+    height: 32px;
+    right: 0px;
+    margin-left: 15px;
+    background-color: #242478;
+    color: white;
+    font-weight: bold;
+}

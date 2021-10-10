@@ -1,6 +1,6 @@
 import database from '../database';
 import { INTEGER, STRING } from 'sequelize';
- 
+
 const Codelist = database.define('Codelist', {
     id_codelist: {
         type: INTEGER,
@@ -8,34 +8,40 @@ const Codelist = database.define('Codelist', {
         allowNull: false,
         primaryKey: true
     },
-    id_tag : {
+    number_section: {
         type: STRING,
         allowNull: false
     },
-    id_manual : {
+    number_subsection: {
+        type: STRING,
+        allowNull: false
+    },
+    number_block: {
+        type: STRING,
+        allowNull: false,
+    },
+    name_block: {
+        type: STRING,
+        allowNull: false,
+    },
+    code: {
+        type: STRING,
+        allowNull: false,
+    },
+    fk_manual: {
         type: INTEGER,
-        allowNull: false
+        references: {
+            model: 'Manuals',
+            key: 'id_manual'
+        }
     },
-    number_section : {
-        type: STRING,
-        allowNull: false
-    },
-    number_subsection : {
-        type: STRING,
-        allowNull: false
-    },
-    number_block :{
-        type: STRING,
-        allowNull: false,
-    },
-    name_block :{
-        type: STRING,
-        allowNull: false,
-    },
-    code :{
-        type: STRING,
-        allowNull: false,
-    },
+    fk_tag: {
+        type: INTEGER,
+        references: {
+            model: 'Tags',
+            key: 'id_tag'
+        }
+    }
 })
 
 Codelist.sync()
