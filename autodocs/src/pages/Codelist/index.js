@@ -6,8 +6,6 @@ import Tables from '../../components/table';
 import '../../styles/Codelist.css';
 import Mais from '../../Imagens/mais.png';
 
-
-
 function Codelist() {
 
       const { Option } = Select;
@@ -44,7 +42,8 @@ function Codelist() {
 
       const [visibleManual, setManualVisible] = useState(false);
       const [name_manual, setManualName] = useState('');
-      const [visible, setVisible] = useState(false);
+      const [visibleLine, setVisibleLine] = useState(false);
+      const [visibleTag, setVisibleTag] = useState(false);
       const [number_section, setSectionNumber] = useState('');
       const [number_subsection, setSubSectionNumber] = useState('');
       const [number_block, setBlockNumber] = useState('');
@@ -155,7 +154,9 @@ function Codelist() {
                   </Modal>
 
 
-
+                   <Button id="createTag" onClick={() => setVisibleTag(true)}>
+                     Nova Tag &nbsp;
+                   </Button>
                   <Button id="createCodelist" onClick={() => setVisible(true)}>
                         Novo Codelist &nbsp;<img class="mais" alt="" src={Mais} />
                   </Button>
@@ -163,7 +164,7 @@ function Codelist() {
                   <Modal
                         title="Cadastro codelist" 
                         centered
-                        visible={visible}
+                        visible={setVisibleLine}
                         width={1300}
                         footer={[
 
@@ -260,9 +261,49 @@ function Codelist() {
                               </ul>
 
                               <button type="submit" id="cadastrar">Cadastrar</button>
-                              <button onClick={() => setVisible(false)} id="cancelar">Cancelar</button>
+                              <button onClick={() => setVisibleLine(false)} id="cancelar">Cancelar</button>
                         </form>
                   </Modal>
+                   <Modal
+        title="Cadastro tag"
+        centered
+        visible={visibleTag}
+        width={1300}
+        footer={[]}
+      >
+        <form onSubmit={HandleSubmit}>
+          <ul class="form">
+            <ui id="label">
+              <b>Tag Number </b>
+            </ui>
+            <ui id="input">
+              <input
+                required
+                value={id_tag}
+                onChange={(e) => setTagNumber(e.target.value)}
+              />
+            </ui>
+          </ul>
+          <ul class="form">
+            <ui id="label">
+              <b>Tag Name </b>
+            </ui>
+            <ui id="input">
+              <input
+                required
+                value={TagName}
+                onChange={(e) => setTagName(e.target.value)}
+              />
+            </ui>
+          </ul>
+          <button onClick={() => setVisibleTag(false)} id="cancelar">
+            Cancelar
+          </button>
+          <button type="submit" id="cadastrar">
+            Cadastrar
+          </button>
+          </form>
+      </Modal>
                   <p class="table">
                         <Tables />
                   </p>
