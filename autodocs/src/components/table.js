@@ -2,16 +2,16 @@ import 'antd/dist/antd.css';
 import { Table } from 'antd';
 import React, { useState, useEffect } from "react";
 import api from "../services/api";
-    function Tables(){
+    function Tables(id){
         const [getItens, setGetItens] = useState([]);
         useEffect(()=>{
             async function getLines(){
-                  const response = await api.get('/codelist?id=');
+                  const response = await api.get(`/codelist?id=1`);
                   console.log(response.data);
                   setGetItens(response.data);
             }
             getLines();
-      },[]);
+      },[getItens, id]);
         const columns = [
         {
             title: 'Nº Section',
@@ -50,40 +50,20 @@ import api from "../services/api";
         },
         
         ];
+        const datas =
+        getItens.map((data) => ( 
         
-        const data = [
         {
             key: '1',
-            Code: getItens.code,
-            Tag: getItens.id_codelist,
-            NºTag: getItens.id_tag,
-            BlockName: getItens.name_block,
-            NºBlock: getItens.number_block,
-            NºSubection: getItens.number_subsection,
-            NºSection: getItens.number_section
-        },
-        {
-            key: '2',
-            Code: 'John Brown',
-            Tag: 32,
-            NºTag: 1,
-            BlockName: 'Letter',
-            NºBlock: 1,
-            NºSubection: 'oi',
-            NºSection: 'boi'
-        },
-        {
-            key: '3',
-            Code: 'John Brown',
-            Tag: 32,
-            NºTag: 1,
-            BlockName: 'Letter',
-            NºBlock: 1,
-            NºSubection: 'oi',
-            NºSection: 'boi'
+            Code: data.code,
+            Tag: data.id_codelist,
+            NºTag: data.fk_tag,
+            BlockName: data.name_block,
+            NºBlock: data.number_block,
+            NºSubection: data.number_subsection,
+            NºSection: data.number_section
         }
-        ];
-
-        return(<Table columns={columns} dataSource={data} /> );
+         ))
+        return(<Table columns={columns} dataSource={datas} /> );
     }
     export default Tables;

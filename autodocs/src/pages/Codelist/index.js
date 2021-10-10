@@ -14,7 +14,7 @@ function Codelist() {
     setManualVisible(false);
     refreshPage();
   }
-  let fk_manual;
+  let fk_manual=0;
   function onChange(value) {
     console.log(`selected ${value}`);
     if (value === "Novo Manual") {
@@ -291,7 +291,7 @@ function Codelist() {
         </form>
       </Modal>
       <p class="table">
-        <Tables />
+        <Tables id={fk_manual}/>
       </p>
     </>
   );

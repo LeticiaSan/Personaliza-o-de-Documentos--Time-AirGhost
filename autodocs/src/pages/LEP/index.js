@@ -1,7 +1,6 @@
 import React from 'react';
 import Header from '../../components/header';
 import '../../styles/LEP.css';
-import Adicionar from '../../Imagens/mais.png';
 function LEP() {
     return (
         <>
