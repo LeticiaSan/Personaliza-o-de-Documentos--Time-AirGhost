@@ -21,8 +21,8 @@ function Main() {
               <header className="App-header"> 
                 <h1>
                   <div id = "menu">
-                      <td><Link to="/codelist"><Button  ><img class ="img" alt ="" src={Document}/><br/> Controle de fragmentos alterados </Button></Link> </td>
-                      <td><Button  > <img class ="img" alt ="" src={Documents}/><br/>Lista de páginas efetivas</Button> </td>
+                      <td><Link to="/codelist"><Button><img class ="img" alt ="" src={Document}/><br/> Controle de fragmentos alterados </Button></Link> </td>
+                      <td><Link to="/lep"><Button> <img class ="img" alt ="" src={Documents}/><br/>Lista de páginas efetivas</Button> </Link> </td>
                       <td><Button  ><img class ="img" alt ="" src={Folder}/><br/> Compilador PDF</Button> </td>
                   </div>
                 </h1>
