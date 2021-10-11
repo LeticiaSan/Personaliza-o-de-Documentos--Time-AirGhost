@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import api from "../../services/api";
-import { Select, Modal, Button } from "antd";
+import { Select, Modal, Button, Table } from "antd";
 import Header from "../../components/header";
 import Tables from "../../components/table";
 import "../../styles/Codelist.css";
@@ -14,14 +14,23 @@ function Codelist() {
     setManualVisible(false);
     refreshPage();
   }
-  let fk_manual=0;
+  const [fk_manual, setFkManual] = useState("");
+  if(fk_manual){
+    
+  }
+  else{
+    setFkManual(1)
+  }
+  console.log(fk_manual);
   function onChange(value) {
     console.log(`selected ${value}`);
     if (value === "Novo Manual") {
       setManualVisible(true);
     }
-    fk_manual = value;
+    setFkManual(value);
+    console.log(fk_manual);
   }
+  let id=fk_manual;
 
   function onBlur() {
     console.log("blur");
@@ -37,7 +46,68 @@ function Codelist() {
   function refreshPage() {
     window.location.reload();
   }
-
+  const [getItens, setGetItens] = useState([]);
+        useEffect(()=>{
+            async function getLines(){
+                  const response = await api.get(`/codelist?id=${id}`);
+                 // console.log(response.data);
+                  setGetItens(response.data);
+            }
+            getLines();
+      },[fk_manual]);
+        const columns = [
+        {
+            title: 'Nº Section',
+            dataIndex: 'NºSection',
+            key: 'NºSection',
+        },
+        {
+            title: 'Nº Subection',
+            dataIndex: 'NºSubection',
+            key: 'NºSubection',
+        },
+        {
+            title: 'Nº Block',
+            dataIndex: 'NºBlock',
+            key: 'NºBlock',
+        },
+        {
+            title: 'Block Name',
+            key: 'BlockName',
+            dataIndex: 'BlockName',
+        },
+        {
+            title: 'Code',
+            key: 'Code',
+            dataIndex: 'Code',
+        },
+        {
+            title: 'Nº Tag',
+            key: 'NºTag',
+            dataIndex: 'NºTag',
+        },
+        {
+          title: 'Editar/Excluir',
+          key: 'edit',
+          dataIndex: 'edit',
+       },
+        
+        ];
+        const datas =
+        getItens.map((data) => ( 
+        
+        {
+            key: '1',
+            Code: data.code,
+           // Tag: data.id_codelist,
+            NºTag: data.fk_tag,
+            BlockName: data.name_block,
+            NºBlock: data.number_block,
+            NºSubection: data.number_subsection,
+            NºSection: data.number_section,
+            edit: <Tables/>
+        }
+         ))
   const [visibleManual, setManualVisible] = useState(false);
   const [name_manual, setManualName] = useState("");
   const [visibleLine, setVisibleLine] = useState(false);
@@ -48,7 +118,8 @@ function Codelist() {
   const [name_block, setBlockName] = useState("");
   const [code, setCode] = useState("");
   const [fk_tag, setTagNumber] = useState("");
-  const [TagName, setTagName] = useState("");
+  const [id_tag, setTagId] = useState("");
+  const [name_tag, setTagName] = useState("");
   async function HandleSubmit(e) {
     e.preventDefault();
     const response = await api.post("/codelist", {
@@ -77,13 +148,22 @@ function Codelist() {
     setManualName("");
   }
 
-  const [getItens, setGetItens] = useState([]);
+  async function submitTag(e) {
+    e.preventDefault();
+    const response = await api.post("/tag", {
+      id_tag,
+      name_tag
+    });
+    setTagId("");
+    setTagName("");
+  }
+  const [getManual, setGetManual] = useState([]);
 
   useEffect(() => {
     async function getLines() {
       const response = await api.get("/manual");
       console.log(response.data);
-      setGetItens(response.data);
+      setGetManual(response.data);
     }
     getLines();
   }, []);
@@ -105,7 +185,7 @@ function Codelist() {
           }
         >
           <Option value="Novo Manual">Novo Manual</Option>
-          {getItens.map((data) => (
+          {getManual.map((data) => (
             <Option value={data.id_manual}>{data.name_manual}</Option>
           ))}
         </Select>
@@ -145,7 +225,7 @@ function Codelist() {
         Nova Tag &nbsp;
       </Button>
       <Button id="createCodelist" onClick={() => setVisibleLine(true)}>
-        Novo Codelist &nbsp;
+        Nova Linha &nbsp;
         <img class="mais" alt="" src={Mais} />
       </Button>
 
@@ -236,7 +316,7 @@ function Codelist() {
             <ui id="input">
               <input
                 required
-                value={TagName}
+                value={name_tag}
                 onChange={(e) => setTagName(e.target.value)}
               />
             </ui>
@@ -257,7 +337,7 @@ function Codelist() {
         width={1300}
         footer={[]}
       >
-        <form onSubmit={HandleSubmit}>
+        <form onSubmit={submitTag}>
           <ul class="form">
             <ui id="label">
               <b>Tag Number </b>
@@ -265,8 +345,8 @@ function Codelist() {
             <ui id="input">
               <input
                 required
-                value={fk_tag}
-                onChange={(e) => setTagNumber(e.target.value)}
+                value={id_tag}
+                onChange={(e) => setTagId(e.target.value)}
               />
             </ui>
           </ul>
@@ -277,7 +357,7 @@ function Codelist() {
             <ui id="input">
               <input
                 required
-                value={TagName}
+                value={name_tag}
                 onChange={(e) => setTagName(e.target.value)}
               />
             </ui>
@@ -291,7 +371,8 @@ function Codelist() {
         </form>
       </Modal>
       <p class="table">
-        <Tables id={fk_manual}/>
+      {/*  <Tables id={id}/>*/}
+      <Table columns={columns} dataSource={datas} />
       </p>
     </>
   );
