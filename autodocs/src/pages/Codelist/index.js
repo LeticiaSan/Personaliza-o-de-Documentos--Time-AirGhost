@@ -12,14 +12,13 @@ function Codelist() {
   function onCancel() {
     onChange("Digite o Manual");
     setManualVisible(false);
+    setVisibleLine(false);
     refreshPage();
   }
   const [fk_manual, setFkManual] = useState("");
-  if(fk_manual){
-    
-  }
-  else{
-    setFkManual(1)
+  if (fk_manual) {
+  } else {
+    setFkManual(1);
   }
   console.log(fk_manual);
   function onChange(value) {
@@ -30,7 +29,7 @@ function Codelist() {
     setFkManual(value);
     console.log(fk_manual);
   }
-  let id=fk_manual;
+  let id = fk_manual;
 
   function onBlur() {
     console.log("blur");
@@ -47,67 +46,62 @@ function Codelist() {
     window.location.reload();
   }
   const [getItens, setGetItens] = useState([]);
-        useEffect(()=>{
-            async function getLines(){
-                  const response = await api.get(`/codelist?id=${id}`);
-                 // console.log(response.data);
-                  setGetItens(response.data);
-            }
-            getLines();
-      },[fk_manual]);
-        const columns = [
-        {
-            title: 'Nº Section',
-            dataIndex: 'NºSection',
-            key: 'NºSection',
-        },
-        {
-            title: 'Nº Subection',
-            dataIndex: 'NºSubection',
-            key: 'NºSubection',
-        },
-        {
-            title: 'Nº Block',
-            dataIndex: 'NºBlock',
-            key: 'NºBlock',
-        },
-        {
-            title: 'Block Name',
-            key: 'BlockName',
-            dataIndex: 'BlockName',
-        },
-        {
-            title: 'Code',
-            key: 'Code',
-            dataIndex: 'Code',
-        },
-        {
-            title: 'Nº Tag',
-            key: 'NºTag',
-            dataIndex: 'NºTag',
-        },
-        {
-          title: 'Editar/Excluir',
-          key: 'edit',
-          dataIndex: 'edit',
-       },
-        
-        ];
-        const datas =
-        getItens.map((data) => ( 
-        
-        {
-            key: '1',
-            Code: data.code,
-           // Tag: data.id_codelist,
-            NºTag: data.fk_tag,
-            BlockName: data.name_block,
-            NºBlock: data.number_block,
-            NºSubection: data.number_subsection,
-            NºSection: data.number_section,
-            edit: <Tables/>
-        }
-         ))
+  useEffect(() => {
+    async function getLines() {
+      const response = await api.get(`/codelist?id=${id}`);
+      // console.log(response.data);
+      setGetItens(response.data);
+    }
+    getLines();
+  }, [fk_manual]);
+  const columns = [
+    {
+      title: "Nº Section",
+      dataIndex: "NºSection",
+      key: "NºSection",
+    },
+    {
+      title: "Nº Subection",
+      dataIndex: "NºSubection",
+      key: "NºSubection",
+    },
+    {
+      title: "Nº Block",
+      dataIndex: "NºBlock",
+      key: "NºBlock",
+    },
+    {
+      title: "Block Name",
+      key: "BlockName",
+      dataIndex: "BlockName",
+    },
+    {
+      title: "Code",
+      key: "Code",
+      dataIndex: "Code",
+    },
+    {
+      title: "Nº Tag",
+      key: "NºTag",
+      dataIndex: "NºTag",
+    },
+    {
+      title: "Editar/Excluir",
+      key: "edit",
+      dataIndex: "edit",
+    },
+  ];
+  const datas = getItens.map((data) => ({
+    key: "1",
+    Code: data.code,
+    // Tag: data.id_codelist,
+    NºTag: data.fk_tag,
+    BlockName: data.name_block,
+    NºBlock: data.number_block,
+    NºSubection: data.number_subsection,
+    NºSection: data.number_section,
+    edit: <Tables />,
+  }));
   const [visibleManual, setManualVisible] = useState(false);
   const [name_manual, setManualName] = useState("");
   const [visibleLine, setVisibleLine] = useState(false);
@@ -152,7 +146,7 @@ function Codelist() {
     e.preventDefault();
     const response = await api.post("/tag", {
       id_tag,
-      name_tag
+      name_tag,
     });
     setTagId("");
     setTagName("");
@@ -325,7 +319,7 @@ function Codelist() {
           <button type="submit" id="cadastrar">
             Cadastrar
           </button>
-          <button onClick={() => setVisibleLine(false)} id="cancelar">
+          <button onClick={() => onCancel()} id="cancelar">
             Cancelar
           </button>
         </form>
@@ -371,8 +365,8 @@ function Codelist() {
         </form>
       </Modal>
       <p class="table">
-      {/*  <Tables id={id}/>*/}
-      <Table columns={columns} dataSource={datas} />
+        {/*  <Tables id={id}/>*/}
+        <Table columns={columns} dataSource={datas} />
       </p>
     </>
   );
