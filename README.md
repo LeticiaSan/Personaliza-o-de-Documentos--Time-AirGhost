@@ -4,7 +4,7 @@
 <hr>
 
 # 🔹 Burndown
-<center><img src= "https://media.discordapp.net/attachments/829529495886888990/889327244642762792/unknown.png?width=1020&height=237"></center>
+<center><img src= "https://media.discordapp.net/attachments/829529495886888990/896941170662453329/unknown.png?width=1020&height=211"></center>
 
 # 🔹 Protótipo
 <hr>
