@@ -8,6 +8,7 @@
 
 # 🔹 Protótipo
 <hr>
+
 **Criação do Manual - Tela do Codelist**
 <center><img src="https://cdn.discordapp.com/attachments/829529495886888990/896936763195531325/unknown.png"></center>
 <center><img src="https://cdn.discordapp.com/attachments/829529495886888990/896937207200350269/unknown.png"></center>
