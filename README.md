@@ -12,7 +12,8 @@
 
 | Data | Links |
 | ------ | ------ |
-|    19/09/2021    |[Sprint 1](https://github.com/LeticiaSan/Personaliza-o-de-Documentos--Time-AirGhost/tree/Sprint_1) :sparkles: **New!** |
+|    19/09/2021    |[Sprint 1](https://github.com/LeticiaSan/Personaliza-o-de-Documentos--Time-AirGhost/tree/Sprint_1)|
+|    10/10/2021    |[Sprint 1](https://github.com/LeticiaSan/Personaliza-o-de-Documentos--Time-AirGhost/tree/Sprint_2) :sparkles: **New!** |
 
 # Tecnologias💻
 - _Languages_<br>
