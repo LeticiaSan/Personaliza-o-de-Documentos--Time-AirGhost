@@ -2,7 +2,8 @@ import React, { useState, useEffect } from "react";
 import api from "../../services/api";
 import { Select, Modal, Button, Table } from "antd";
 import Header from "../../components/header";
-import Tables from "../../components/table";
+import Pencil from "../../Imagens/pencil.png";
+import Bin from "../../Imagens/bin.png";
 import "../../styles/Codelist.css";
 import Mais from "../../Imagens/mais.png";
 
@@ -41,6 +42,12 @@ function Codelist() {
 
   function onSearch(val) {
     console.log("search:", val);
+  }
+  async function haddleDelete(id){
+    if(window.confirm){
+      var response = await api.delete(`/codelist?id=${id}`)
+    }
+    console.log(response.status);
   }
   function refreshPage() {
     window.location.reload();
@@ -92,7 +99,7 @@ function Codelist() {
     },
   ];
   const datas = getItens.map((data) => ({
-    key: "1",
+    key: data.id_codelist,
     Code: data.code,
     // Tag: data.id_codelist,
     NºTag: data.fk_tag,
@@ -100,7 +107,7 @@ function Codelist() {
     NºBlock: data.number_block,
     NºSubection: data.number_subsection,
     NºSection: data.number_section,
-    edit: <Tables />,
+    edit: <><button onClick={ ()=> haddleDelete(data.id_codelist)}><img class="mais" alt="" src={Pencil} /></button><img class="mais" alt="" src={Bin} /></>,
   }));
   const [visibleManual, setManualVisible] = useState(false);
   const [name_manual, setManualName] = useState("");
